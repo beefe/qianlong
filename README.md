@@ -16,6 +16,9 @@
 	$ node server.js
 ```
 
+## 开发
+- [Git 使用](https://github.com/beefe/qianlong/blob/master/doc/learn-git.md)
+
 ## Todos
 
 - 调整目录结构，优化代码
