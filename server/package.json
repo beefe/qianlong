@@ -1,12 +1,15 @@
 {
-  "name": "qianlonglaile",
-  "version": "0.0.1",
-  "private": true,
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.13.3",
-    "react-native": "^0.12.0"
+    "express": "^4.13.3"
   }
 }

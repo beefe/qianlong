@@ -13,7 +13,7 @@
 ```
 	$ cd server
 	$ npm install
-	$ node server.js
+	$ npm start
 ```
 
 ## 开发

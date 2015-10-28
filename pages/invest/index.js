@@ -38,6 +38,7 @@ class InvestView extends React.Component {
 			<ScrollView>
 
 				<SlideBanner images={slideBannerImages} />
+				
 				<View style={styles.wrapper}>
 
 					<TouchableHighlight 
