@@ -1,3 +1,5 @@
+'use strict';
+
 let React = require('react-native');
 
 let {
@@ -81,4 +83,12 @@ class Purchase extends React.Component {
 
 }
 
-module.exports = Purchase;
+module.exports = {	
+	title: '购买',
+	component: Purchase
+};
+
+
+
+
+
