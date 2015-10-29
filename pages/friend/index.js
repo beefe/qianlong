@@ -89,5 +89,8 @@ class FriendView extends React.Component {
 
 }
 
-module.exports = FriendView;
+module.exports = {
+	title: '我的好友',
+	component: FriendView
+};
 
