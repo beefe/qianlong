@@ -1,4 +1,4 @@
-# react-native-demo
+# qianlong
 ![截图](./doc/201510271849.png) ![截图](./doc/201510271848.png)
 
 
@@ -20,8 +20,9 @@
 - [Git 使用](https://github.com/beefe/qianlong/blob/master/doc/learn-git.md)
 
 ## Todos
-
-- 调整目录结构，优化代码
+- 页面通信
+- 下拉刷新
+- 图片轮播
 
 ## 遇到的问题
 
