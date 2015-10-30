@@ -13,6 +13,20 @@ app.get('/friend', function(req, res) {
 	console.log('/friend');
 });
 
+app.get('/invest', function(req, res) {
+
+	res.send({
+		retcode: 2000000,
+		data: {
+			title: '钱隆第109期-活期',
+			earningsYield: '14',
+			totalAmount: '100万',
+			totalSales: '50000000000'
+		}
+	});
+
+});
+
 var server = app.listen(3000, function() {
 	console.log();
 });

@@ -31,9 +31,31 @@ class InvestView extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			title: '',
+			earningsYield: '',
+			totalAmount: '',
+			totalSales: ''
+		};
+	}
+
+	componentDidMount() {
+		fetch('http://localhost:3000/invest').then((responseText) => {
+			responseText.json().then((resp) => {
+				let data = resp.data;
+				this.setState({
+					title: data.title,
+					earningsYield: data.earningsYield,
+					totalAmount: data.totalAmount,
+					totalSales: data.totalSales
+				});
+			});
+		});
 	}
 
 	render() {
+		let data = this.state;
+
 		return (
 			<ScrollView>
 
@@ -84,15 +106,15 @@ class InvestView extends React.Component {
 							borderRadius: 6,
 							paddingBottom: 14}}>
 
-							<Text style={styles.productTitle}>钱隆第108期-活期</Text>
+							<Text style={styles.productTitle}>{data.title}</Text>
 							
 							{arrowImage}
 
 						</View>
 
 						<View>
-							<Text style={{paddingTop:0, textAlign:'center', fontSize:46, color:'#ff6160'}}>14%</Text>
-							<Text style={{paddingBottom:20, textAlign:'center', fontSize:12, color:'#585858'}}>项目总金额：100万</Text>
+							<Text style={{paddingTop:0, textAlign:'center', fontSize:46, color:'#ff6160'}}>{data.earningsYield}%</Text>
+							<Text style={{paddingBottom:20, textAlign:'center', fontSize:12, color:'#585858'}}>项目总金额：{data.totalAmount}</Text>
 							
 
 							<TouchableHighlight
@@ -130,7 +152,7 @@ class InvestView extends React.Component {
 
 					<View style={{marginTop:10,paddingTop:20,borderRadius:6,backgroundColor:'#fff'}}>
 						<Text style={{paddingBottom:12,textAlign:'center',fontSize:14,color:'#585858'}}>钱隆来了已累计为投资者提供理财金额(元)</Text>
-						<Text style={{paddingBottom:15,textAlign:'center',fontSize:24,color:'#d3a241'}}>58,888,888,888,880</Text>
+						<Text style={{paddingBottom:15,textAlign:'center',fontSize:24,color:'#d3a241'}}>{data.totalSales}</Text>
 						
 						<TouchableHighlight
 							activeOpacity={1}
