@@ -11,9 +11,57 @@ class Purchase extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			earning: 0,
+			earningsYield: '0.14',
+			disableSubmit: true,
+			underlayColor: '#d9d9d9',
+			submitBtnColor: '#d9d9d9'
+		};
+	}
+
+	calculateEarning(value) {
+		let val = parseInt(value);
+		let rate = this.state.earningsYield;
+		
+		if (!isNaN(val) && val > 0) {
+			this.setState({
+				earning: val * rate / 365
+			});
+			this.recoverSubmit();
+		} else {
+			this.setState({
+				earning: 0
+			});
+			this.disableSubmit();
+		}
+	}
+
+	recoverSubmit() {
+		this.setState({
+			disableSubmit: false,
+			underlayColor: '#ec4c4a',
+			submitBtnColor: '#ff6160'
+		});
+	}
+
+	disableSubmit() {
+		this.setState({
+			disableSubmit: true,
+			underlayColor: '#d9d9d9',
+			submitBtnColor: '#d9d9d9'
+		});
+	}
+
+	nextStep() {
+		alert('😄');
 	}
 
 	render() {
+		let earning = this.state.earning;
+		let submitBtnColor = this.state.submitBtnColor;
+		let underlayColor = this.state.underlayColor;
+
 		return (
 			<View 
 				style={{
@@ -51,27 +99,33 @@ class Purchase extends React.Component {
 						backgroundColor:'#fff'
 					}}>
 					<Text style={{width:100,fontSize:15,color:'#333'}}>投资金额(元)</Text>
-					<View
+					<TextInput 
+						keyboardType="numeric" 
+						placeholder="最低100" 
+						placeholderTextColor="#ccc" 
+						clearButtonMode="while-editing"
+						onChangeText={this.calculateEarning.bind(this)}
 						style={{
 							flex:1,
-							alignItems:'center',
-							flexDirection:'row',
-							height:20
-						}}>
-						<TextInput keyboardType="numeric" placeholder="最低100" placeholderTextColor="#ccc" style={{flex:1}} />
-						<Image style={{width:14, height:14}} source={require('image!btn_delete_28x28')} />
-					</View>
+						}} />
 				</View>
+				<View style={{
+					paddingTop: 10,
+					paddingBottom: 10,
+					paddingLeft: 15,
+					paddingRight: 15,
+				}}><Text style={{color:'#d3a241'}}>每日将增加{earning}元收益</Text></View>
 
 				<TouchableHighlight
 					activeOpacity={1}
-					underlayColor="#ec4c4a"
+					underlayColor={underlayColor}
+					onPress={this.nextStep}
 					style={{
 						height:45,
 						marginTop: 20,
 						alignItems:'center',
 						justifyContent:'center',
-						backgroundColor:'#ff6160'
+						backgroundColor:submitBtnColor
 					}}>
 
 					<Text style={{color:'#fff', fontSize:15, fontWeight:'700'}}>下一步</Text>

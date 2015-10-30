@@ -68,8 +68,9 @@ function createNavigator(s) {
 			tintColor="#ff6160"
 			translucent={true}
 			itemWrapperStyle={{backgroundColor:'#f5f5f5'}}
-			initialRoute={s.route} />
-		);	
+			initialRoute={s.route} 
+		/>
+	);
 }
 
 React.AppRegistry.registerComponent('qianlonglaile', () => Qianlonglaile);
