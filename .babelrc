@@ -1,0 +1,15 @@
+{
+	"retainLines": true,
+	"compact": true,
+	"comments": false,
+	"whitelist": [
+		"es6.modules",
+		"es7.classProperties",
+		"es7.decorators",
+		"regenerator",
+		"flow",
+		"react",
+		"react.displayName"
+	],
+	"sourceMaps": false
+}
